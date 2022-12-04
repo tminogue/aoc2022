@@ -44,7 +44,6 @@ def part_2(input_list: list):
         # print("-"*20)
         intersect_length = len(range_intersect)
 
-        # if the length of either range equals the length of the intersection there is a full overlap
         if intersect_length > 0:
             overlap_counter+=1
 
