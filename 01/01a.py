@@ -26,10 +26,13 @@ def count_elf_calories(input_list: list):
     return elf_calorie_counts
 
 
-def main(part: str, input_file_path: str):
-    input_list = deserialize_input_file(input_file_path)
-    elf_calorie_counts = count_elf_calories(input_list)
+
+if __name__ == '__main__':
+    input_file = "test_input.txt" if param_1 == "test" else "01_input.txt"
+
     if part == "1":
-        part_1(elf_calorie_counts)
+        part_1(input_file)
     elif part == "2":
-        part_2(elf_calorie_counts)
+        part_2(input_file)
+    else:
+        print("Specify '1' or '2' as the part")
