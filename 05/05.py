@@ -64,9 +64,9 @@ def move_crates(moves: list, reverse: bool):
         if not crate_map[from_stack]:
             crate_map[from_stack] = []
 
-        # remove crates from beginning (top) of list - "one at a time"
-        # reverse the list because the topmost crate is the first moved to the new stack, and the other follow
-        # with the bottom-most crate removed from the "from" stack becoming the topmost crate on the "to" stack
+        # remove crates from beginning (top) of list - "one at a time" for part 1, as a stack for part 2
+        # for part 1 reverse the list because the topmost crate is the first moved to the new stack, and the others
+        # follow with the bottom-most crate removed from the "from" stack becoming the topmost crate on the "to" stack
         crates_to_move = crate_map[from_stack][:quantity]
         if reverse:
             crates_to_move.reverse()
@@ -74,17 +74,15 @@ def move_crates(moves: list, reverse: bool):
         # add crates to beginning (top) of list
         crates_to_move.extend(crate_map[to_stack])
         crate_map[to_stack] = crates_to_move
-
         # print(crate_map)
         # print("-"*40)
-
     return crate_map
 
 
 def solve(move_values: list, problem_part: int):
 
-    moves = build_moves(move_values)
     reverse_crates = problem_part == 1
+    moves = build_moves(move_values)
 
     final_crate_map = move_crates(moves, reverse_crates)
 
